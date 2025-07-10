@@ -1,10 +1,17 @@
-import { Controller, HttpCode, Post } from '@nestjs/common';
+import { CreateAnnouncementUseCase } from '@announcement/application/use-cases/createAnnouncementUseCase';
+import { CreateAnnouncementDTO } from '@announcement/infra/adapters/dtos/announcementDTO';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 
-@Controller()
+@Controller('announcement')
 export class CreateAnnouncementController {
-  constructor() {}
+  constructor(private createAnnouncement: CreateAnnouncementUseCase) {}
 
   @Post()
   @HttpCode(201)
-  async handle() {}
+  async handle(@Body() data: CreateAnnouncementDTO): Promise<void> {
+    await this.createAnnouncement.execute({
+      ...data,
+      sentAt: data.sentAt ? new Date(data.sentAt) : undefined,
+    });
+  }
 }

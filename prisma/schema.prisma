@@ -6,3 +6,34 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model announcement {
+  id      Int    @id @default(autoincrement())
+  author  String @db.VarChar(100)
+  title   String @db.VarChar(100)
+  content String @db.VarChar(5000)
+
+  channelType ChannelType @map("channel_type")
+  status      Status
+
+  sentAt    DateTime? @map("sent_at") @db.Timestamp()
+  createdAt DateTime? @default(now()) @map("created_at") @db.Timestamp()
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp()
+
+  @@index([author])
+  @@index([title])
+  @@index([channelType])
+  @@index([status])
+  @@map("announcement")
+}
+
+enum ChannelType {
+  email
+  slack
+  teams
+}
+
+enum Status {
+  draft
+  sent
+}
