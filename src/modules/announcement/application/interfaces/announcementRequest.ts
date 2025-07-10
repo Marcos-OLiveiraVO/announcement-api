@@ -1,3 +1,4 @@
+import { BasePagination } from '@shared/utils/interfaces/globalInterface';
 import { ChannelType, Status } from '../entities/announcement';
 
 export interface CreateAnnouncementInput {
@@ -24,4 +25,12 @@ export interface AnnouncementViewModelOutput {
   sentAt: Date | undefined;
   createdAt: Date | undefined;
   deletedAt: Date | undefined;
+}
+
+export interface GetAnnouncementsPaginated extends BasePagination {
+  status?: Status;
+  channelType?: ChannelType;
+  author?: string;
+  startDate?: Date;
+  endDate?: Date;
 }

@@ -1,5 +1,6 @@
 import { ChannelType, Status } from '@announcement/application/entities/announcement';
-import { IsString, IsEnum, IsISO8601, IsNotEmpty, Length, Matches } from 'class-validator';
+import { IntersectionType, OmitType, PartialType } from '@nestjs/mapped-types';
+import { IsString, IsEnum, IsISO8601, IsNotEmpty, Length, Matches, IsOptional, IsNumber, IsPositive } from 'class-validator';
 
 export const strictDateTimeWithTimezoneRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d+)?(Z|[+-]\d{2}:\d{2})$/;
 
@@ -37,4 +38,35 @@ export class CreateAnnouncementDTO {
     message: 'sentAt must include a timezone, e.g.: 2020-08-07T12:34:56.789-03:00 or 2020-08-07T12:34:56Z',
   })
   sentAt?: string;
+}
+
+export class BasePaginationDTO {
+  @IsOptional({ message: 'page is optional' })
+  @IsNumber({}, { message: 'page must be a number' })
+  @IsPositive({ message: 'page must be a positive number' })
+  page: number;
+
+  @IsOptional({ message: 'limit is optional' })
+  @IsNumber({}, { message: 'limit must be a number' })
+  @IsPositive({ message: 'limit must be a positive number' })
+  limit: number;
+}
+
+export class GetAnnouncementsPaginatedDTO extends IntersectionType(
+  BasePaginationDTO,
+  PartialType(OmitType(CreateAnnouncementDTO, ['title', 'content', 'sentAt'] as const)),
+) {
+  @IsString({ message: 'startDate must be a string.' })
+  @IsNotEmpty({ message: 'startDate is required.' })
+  @Matches(strictDateTimeWithTimezoneRegex, {
+    message: 'startDate must include a timezone, e.g.: 2020-08-07T12:34:56.789-03:00 or 2020-08-07T12:34:56Z',
+  })
+  startDate: string;
+
+  @IsString({ message: 'endDate must be a string.' })
+  @IsNotEmpty({ message: 'endDate is required.' })
+  @Matches(strictDateTimeWithTimezoneRegex, {
+    message: 'endDate must include a timezone, e.g.: 2020-08-07T12:34:56.789-03:00 or 2020-08-07T12:34:56Z',
+  })
+  endDate: string;
 }
