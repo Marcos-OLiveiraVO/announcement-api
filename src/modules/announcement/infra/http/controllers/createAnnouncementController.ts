@@ -2,7 +2,7 @@ import { CreateAnnouncementUseCase } from '@announcement/application/use-cases/c
 import { CreateAnnouncementDTO } from '@announcement/infra/adapters/dtos/announcementDTO';
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 
-@Controller('announcement')
+@Controller('comunicados')
 export class CreateAnnouncementController {
   constructor(private createAnnouncement: CreateAnnouncementUseCase) {}
 
