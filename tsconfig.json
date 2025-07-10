@@ -11,7 +11,8 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@announcement/*": ["modules/announcement/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
