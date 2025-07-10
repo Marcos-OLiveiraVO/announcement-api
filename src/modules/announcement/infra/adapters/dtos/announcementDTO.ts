@@ -70,3 +70,5 @@ export class GetAnnouncementsPaginatedDTO extends IntersectionType(
   })
   endDate: string;
 }
+
+export class UpdateAnnouncementDTO extends PartialType(OmitType(CreateAnnouncementDTO, ['author'])) {}

@@ -6,10 +6,17 @@ import { GetAnnouncementController } from './infra/http/controllers/getAnnouncem
 import { GetAnnouncementUseCase } from './application/use-cases/getAnnouncementUseCase';
 import { GetAnnouncementsController } from './infra/http/controllers/getAnnouncementsController';
 import { GetAnnouncementsUseCase } from './application/use-cases/getAnnouncementsUseCase';
+import { UpdateAnnouncementController } from './infra/http/controllers/updateAnnouncementController';
+import { UpdateAnnouncementUseCase } from './application/use-cases/updateAnnouncementUseCase';
 
 @Module({
   imports: [DatabaseModule],
-  providers: [CreateAnnouncementUseCase, GetAnnouncementUseCase, GetAnnouncementsUseCase],
-  controllers: [CreateAnnouncementController, GetAnnouncementController, GetAnnouncementsController],
+  providers: [CreateAnnouncementUseCase, UpdateAnnouncementUseCase, GetAnnouncementUseCase, GetAnnouncementsUseCase],
+  controllers: [
+    CreateAnnouncementController,
+    UpdateAnnouncementController,
+    GetAnnouncementController,
+    GetAnnouncementsController,
+  ],
 })
 export class AnnouncementModule {}

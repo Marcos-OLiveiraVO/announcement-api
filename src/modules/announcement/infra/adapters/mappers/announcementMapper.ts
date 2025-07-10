@@ -1,5 +1,5 @@
 import { Announcement as AnnouncementEntity, ChannelType, Status } from '@announcement/application/entities/announcement';
-import { announcement as announcementModel } from '@prisma/client';
+import { announcement as announcementModel, Prisma } from '@prisma/client';
 
 export class AnnouncementMapper {
   static toDomain(model: announcementModel): AnnouncementEntity {
@@ -17,5 +17,17 @@ export class AnnouncementMapper {
       model.id,
     );
   }
-  static toDatabase() {}
+  static toDatabase(entity: AnnouncementEntity): Prisma.announcementUncheckedCreateInput {
+    return {
+      id: entity.id,
+      author: entity.author,
+      title: entity.title,
+      content: entity.content,
+      channelType: entity.channelType,
+      status: entity.status,
+      sentAt: entity.sentAt,
+      createdAt: entity.createdAt,
+      deletedAt: entity.deletedAt,
+    };
+  }
 }

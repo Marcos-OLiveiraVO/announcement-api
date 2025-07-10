@@ -14,8 +14,17 @@ import {
 export class AnnouncementRepository implements IAnnouncementRepository {
   constructor(private prisma: PrismaService) {}
 
-  async createAnnouncement(announcement: Announcement): Promise<void> {
-    await this.prisma.announcement.create({ data: announcement });
+  async createAnnouncement(data: Announcement): Promise<void> {
+    await this.prisma.announcement.create({ data: AnnouncementMapper.toDatabase(data) });
+  }
+
+  async updateAnnouncement(data: Announcement): Promise<Announcement> {
+    const announcement = await this.prisma.announcement.update({
+      where: { id: data.id },
+      data: AnnouncementMapper.toDatabase(data),
+    });
+
+    return AnnouncementMapper.toDomain(announcement);
   }
 
   async findAnnouncementByTitle(data: FindAnnouncementByTitleInput): Promise<boolean> {

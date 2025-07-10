@@ -34,3 +34,12 @@ export interface GetAnnouncementsPaginated extends BasePagination {
   startDate?: Date;
   endDate?: Date;
 }
+
+export interface UpdateAnnouncementInput {
+  id: number;
+  title?: string;
+  content?: string;
+  channel?: ChannelType;
+  status?: Status;
+  sentAt?: Date;
+}
