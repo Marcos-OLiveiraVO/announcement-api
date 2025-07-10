@@ -8,10 +8,18 @@ import { GetAnnouncementsController } from './infra/http/controllers/getAnnounce
 import { GetAnnouncementsUseCase } from './application/use-cases/getAnnouncementsUseCase';
 import { UpdateAnnouncementController } from './infra/http/controllers/updateAnnouncementController';
 import { UpdateAnnouncementUseCase } from './application/use-cases/updateAnnouncementUseCase';
+import { IAnnouncementRepository } from './application/interfaces/IAnnouncementRepository';
+import { AnnouncementRepository } from './infra/database/repositories/announcementRepository';
 
 @Module({
   imports: [DatabaseModule],
-  providers: [CreateAnnouncementUseCase, UpdateAnnouncementUseCase, GetAnnouncementUseCase, GetAnnouncementsUseCase],
+  providers: [
+    CreateAnnouncementUseCase,
+    UpdateAnnouncementUseCase,
+    GetAnnouncementUseCase,
+    GetAnnouncementsUseCase,
+    { provide: IAnnouncementRepository, useClass: AnnouncementRepository },
+  ],
   controllers: [
     CreateAnnouncementController,
     UpdateAnnouncementController,

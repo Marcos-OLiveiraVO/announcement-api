@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -16,9 +16,9 @@ model announcement {
   channelType ChannelType @map("channel_type")
   status      Status
 
-  sentAt    DateTime? @map("sent_at") @db.Timestamp()
-  createdAt DateTime? @default(now()) @map("created_at") @db.Timestamp()
-  deletedAt DateTime? @map("deleted_at") @db.Timestamp()
+  sentAt    DateTime? @db.Timestamp()
+  createdAt DateTime? @default(now()) @db.Timestamp()
+  deletedAt DateTime? @db.Timestamp()
 
   @@index([author])
   @@index([title])
