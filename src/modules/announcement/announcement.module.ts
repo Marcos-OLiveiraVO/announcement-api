@@ -10,12 +10,15 @@ import { UpdateAnnouncementController } from './infra/http/controllers/updateAnn
 import { UpdateAnnouncementUseCase } from './application/use-cases/updateAnnouncementUseCase';
 import { IAnnouncementRepository } from './application/interfaces/IAnnouncementRepository';
 import { AnnouncementRepository } from './infra/database/repositories/announcementRepository';
+import { DeleteAnnouncementController } from './infra/http/controllers/deleteAnnouncementController';
+import { DeleteAnnouncementUseCase } from './application/use-cases/deleteAnnouncementUseCase';
 
 @Module({
   imports: [DatabaseModule],
   providers: [
     CreateAnnouncementUseCase,
     UpdateAnnouncementUseCase,
+    DeleteAnnouncementUseCase,
     GetAnnouncementUseCase,
     GetAnnouncementsUseCase,
     { provide: IAnnouncementRepository, useClass: AnnouncementRepository },
@@ -23,6 +26,7 @@ import { AnnouncementRepository } from './infra/database/repositories/announceme
   controllers: [
     CreateAnnouncementController,
     UpdateAnnouncementController,
+    DeleteAnnouncementController,
     GetAnnouncementController,
     GetAnnouncementsController,
   ],

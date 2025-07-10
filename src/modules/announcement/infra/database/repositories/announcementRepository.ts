@@ -27,6 +27,10 @@ export class AnnouncementRepository implements IAnnouncementRepository {
     return AnnouncementMapper.toDomain(announcement);
   }
 
+  async deleteAnnouncement(id: number): Promise<void> {
+    await this.prisma.announcement.deleteMany({ where: { id } });
+  }
+
   async findAnnouncementByTitle(data: FindAnnouncementByTitleInput): Promise<boolean> {
     const announcementExists = await this.prisma.announcement.findFirst({
       where: { title: data.title, author: data.author },
