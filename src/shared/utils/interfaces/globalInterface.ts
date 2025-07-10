@@ -15,3 +15,11 @@ export interface BasePagination {
   page: number;
   limit: number;
 }
+
+
+export interface FetchData {
+  url: string;
+  request: any;
+  retries?: number;
+  retryDelay?: number;
+}
