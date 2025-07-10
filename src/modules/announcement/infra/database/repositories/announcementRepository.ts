@@ -1,6 +1,7 @@
 import { Announcement } from '@announcement/application/entities/announcement';
 import { FindAnnouncementByTitleInput } from '@announcement/application/interfaces/announcementRequest';
 import { IAnnouncementRepository } from '@announcement/application/interfaces/IAnnouncementRepository';
+import { AnnouncementMapper } from '@announcement/infra/adapters/mappers/announcementMapper';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@shared/database/prismaService';
 
@@ -18,5 +19,15 @@ export class AnnouncementRepository implements IAnnouncementRepository {
     });
 
     return announcementExists ? true : false;
+  }
+
+  async findAnnouncementById(id: number): Promise<Announcement | null> {
+    const announcement = await this.prisma.announcement.findUnique({ where: { id } });
+
+    if (!announcement) {
+      return null;
+    }
+
+    return AnnouncementMapper.toDomain(announcement);
   }
 }
