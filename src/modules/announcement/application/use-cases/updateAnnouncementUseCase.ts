@@ -14,7 +14,7 @@ export class UpdateAnnouncementUseCase {
       return null;
     }
 
-    const announcement = new Announcement(data as Announcement);
+    const announcement = new Announcement(data as Announcement, data.id);
 
     return await this.announcementRepository.updateAnnouncement(announcement);
   }

@@ -2,7 +2,10 @@ import { UpdateAnnouncementUseCase } from '@announcement/application/use-cases/u
 import { BadRequestException, Body, Controller, HttpCode, HttpStatus, Param, Put } from '@nestjs/common';
 import { AnnouncementViewModel } from '../viewModels/announcementViewModel';
 import { UpdateAnnouncementDTO } from '@announcement/infra/adapters/dtos/announcementDTO';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiResponse({ status: 400, description: 'id is required' })
+@ApiTags('Announcements')
 @Controller('comunicados')
 export class UpdateAnnouncementController {
   constructor(private updateAnnouncementUseCase: UpdateAnnouncementUseCase) {}

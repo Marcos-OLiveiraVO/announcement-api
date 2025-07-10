@@ -1,7 +1,10 @@
 import { CreateAnnouncementUseCase } from '@announcement/application/use-cases/createAnnouncementUseCase';
 import { CreateAnnouncementDTO } from '@announcement/infra/adapters/dtos/announcementDTO';
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiResponse({ status: 409, description: 'Announcement already exists' })
+@ApiTags('Announcements')
 @Controller('comunicados')
 export class CreateAnnouncementController {
   constructor(private createAnnouncement: CreateAnnouncementUseCase) {}

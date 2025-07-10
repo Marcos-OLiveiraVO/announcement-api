@@ -1,7 +1,10 @@
 import { GetAnnouncementUseCase } from '@announcement/application/use-cases/getAnnouncementUseCase';
 import { AnnouncementViewModel } from '../viewModels/announcementViewModel';
 import { BadRequestException, Controller, Get, HttpCode, Param } from '@nestjs/common';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiResponse({ status: 400, description: 'id is required' })
+@ApiTags('Announcements')
 @Controller('/comunicados')
 export class GetAnnouncementController {
   constructor(private getAnnouncementUseCase: GetAnnouncementUseCase) {}
