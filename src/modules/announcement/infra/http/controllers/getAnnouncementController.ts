@@ -1,8 +1,9 @@
 import { GetAnnouncementUseCase } from '@announcement/application/use-cases/getAnnouncementUseCase';
 import { AnnouncementViewModel } from '../viewModels/announcementViewModel';
 import { BadRequestException, Controller, Get, HttpCode, Param } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @ApiResponse({ status: 400, description: 'id is required' })
 @ApiTags('Announcements')
 @Controller('/comunicados')

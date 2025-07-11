@@ -1,6 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
-import { AuthenticationService } from './authenticationService';
-import { authDataMock } from './mockData/authMock';
+import { AuthenticationService } from '../../application/use-cases/authenticationService';
+import { authDataMock } from '../mockData/authMock';
 
 let authenticationService: AuthenticationService;
 describe('Authentication Service', () => {

@@ -1,8 +1,8 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
-import { IS_PUBLIC_KEY } from './decorators/public.decorator';
 import { validateToken } from '@shared/utils/functions/getToken';
+import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
@@ -26,13 +26,6 @@ export class AuthenticationGuard implements CanActivate {
       });
 
       response.request.user = body;
-
-      const request = context.switchToHttp().getRequest();
-      const profileIdFromRequest = request.params.profileId || request.body.profileId || request.query.profileId;
-
-      if (profileIdFromRequest && Number(body.profileId) !== Number(profileIdFromRequest)) {
-        throw new UnauthorizedException('Token does not match the profile being accessed');
-      }
     } catch (error) {
       if (error instanceof UnauthorizedException) {
         throw error;

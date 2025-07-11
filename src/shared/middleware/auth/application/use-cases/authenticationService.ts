@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { SignInRequest, SignInResponse } from './interfaces/authenticationRequest';
+import { SignInRequest, SignInResponse } from '../interfaces/authenticationRequest';
 
 @Injectable()
 export class AuthenticationService {

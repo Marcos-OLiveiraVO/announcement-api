@@ -1,6 +1,6 @@
 import { Controller, Get, HttpCode, HttpException, HttpStatus } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from '@shared/middleware/auth/decorators/public.decorator';
+import { Public } from '@shared/middleware/auth/infra/http/decorators/public.decorator';
 import { ICacheRepository } from '@shared/services/cache/application/interfaces/ICacheRepository';
 import { ILoggerRepository } from '@shared/services/logger/application/interfaces/ILoggerRepository';
 

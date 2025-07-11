@@ -1,7 +1,8 @@
 import { DeleteAnnouncementUseCase } from '@announcement/application/use-cases/deleteAnnouncementUseCase';
 import { BadRequestException, Controller, Delete, HttpCode, Param } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @ApiResponse({ status: 400, description: 'id is required' })
 @ApiTags('Announcements')
 @Controller('comunicados')

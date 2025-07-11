@@ -1,7 +1,7 @@
 import { Controller, Get, HttpCode, HttpException, HttpStatus } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { PrismaService } from '@shared/database/prismaService';
-import { Public } from '@shared/middleware/auth/decorators/public.decorator';
+import { Public } from '@shared/middleware/auth/infra/http/decorators/public.decorator';
 import { ILoggerRepository } from '@shared/services/logger/application/interfaces/ILoggerRepository';
 
 @Controller('/health')
