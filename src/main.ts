@@ -15,6 +15,10 @@ async function bootstrap() {
     }),
   );
 
+  const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',');
+
+  app.enableCors({ origin: allowedOrigins });
+
   const config = new DocumentBuilder()
     .setTitle('Announcement API')
     .setContact('Marcos Oliveira', 'https://www.linkedin.com/in/marcos-oliveiraaa/', 'marcosoliveira.rd@gmail.com')
