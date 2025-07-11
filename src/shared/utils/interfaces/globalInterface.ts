@@ -16,10 +16,15 @@ export interface BasePagination {
   limit: number;
 }
 
-
 export interface FetchData {
   url: string;
   request: any;
   retries?: number;
   retryDelay?: number;
+}
+
+export interface loggerInput {
+  level: string;
+  message: string;
+  context?: Record<string, any>;
 }
