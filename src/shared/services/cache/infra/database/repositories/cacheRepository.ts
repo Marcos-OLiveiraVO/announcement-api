@@ -8,7 +8,7 @@ export class CacheRepository implements ICacheRepository {
   constructor(@Inject('redis_cache') private redis: Redis) {}
 
   async setCache(data: SetCacheInput): Promise<void> {
-    await this.redis.set(data.key, JSON.stringify(data.value), 'EX', data.ttlInMs);
+    await this.redis.set(data.key, JSON.stringify(data.value), 'EX', data.ttl);
   }
 
   async getCache(key: string): Promise<any> {

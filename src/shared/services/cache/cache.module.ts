@@ -18,5 +18,6 @@ import Redis from 'ioredis';
     },
   ],
   controllers: [],
+  exports: [{ provide: ICacheRepository, useClass: CacheRepository }, 'redis_cache'],
 })
 export class CacheModule {}
