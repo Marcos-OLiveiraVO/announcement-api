@@ -4,7 +4,7 @@ import { PHPostsOutput } from '@shared/services/jsonPlaceHolder/application/inte
 import { GetPostsUseCase } from '@shared/services/jsonPlaceHolder/application/use-cases/getPostsUseCase';
 
 @Controller('integracao')
-@ApiTags('posts - (External API Integration)')
+@ApiTags('JSON Placeholder Posts - (External API Integration)')
 export class GetPostsController {
   constructor(private getPosts: GetPostsUseCase) {}
 

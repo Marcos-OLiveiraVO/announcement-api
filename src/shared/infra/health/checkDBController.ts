@@ -1,8 +1,11 @@
 import { Controller, Get, HttpCode, HttpException, HttpStatus } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { PrismaService } from '@shared/database/prismaService';
+import { Public } from '@shared/middleware/auth/decorators/public.decorator';
 import { ILoggerRepository } from '@shared/services/logger/application/interfaces/ILoggerRepository';
 
 @Controller('/health')
+@ApiTags('Health')
 export class CheckDBController {
   constructor(
     private readonly prisma: PrismaService,
@@ -10,6 +13,7 @@ export class CheckDBController {
   ) {}
 
   @HttpCode(200)
+  @Public()
   @Get('/db')
   async handle(): Promise<HttpStatus.OK | HttpStatus.SERVICE_UNAVAILABLE> {
     try {

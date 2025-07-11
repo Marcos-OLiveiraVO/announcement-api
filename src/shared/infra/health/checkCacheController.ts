@@ -1,8 +1,11 @@
 import { Controller, Get, HttpCode, HttpException, HttpStatus } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { Public } from '@shared/middleware/auth/decorators/public.decorator';
 import { ICacheRepository } from '@shared/services/cache/application/interfaces/ICacheRepository';
 import { ILoggerRepository } from '@shared/services/logger/application/interfaces/ILoggerRepository';
 
 @Controller('/health')
+@ApiTags('Health')
 export class CheckCacheController {
   constructor(
     private readonly logger: ILoggerRepository,
@@ -11,6 +14,7 @@ export class CheckCacheController {
 
   @HttpCode(200)
   @Get('/cache')
+  @Public()
   async handle(): Promise<HttpStatus.OK | HttpStatus.SERVICE_UNAVAILABLE> {
     try {
       await this.cache.healthCheck();
