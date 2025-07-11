@@ -16,4 +16,8 @@ export class CacheRepository implements ICacheRepository {
 
     return data ? JSON.parse(data) : null;
   }
+
+  async healthCheck(): Promise<void> {
+    await this.redis.ping();
+  }
 }
