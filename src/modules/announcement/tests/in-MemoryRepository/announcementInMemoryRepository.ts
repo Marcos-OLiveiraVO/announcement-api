@@ -5,6 +5,7 @@ import {
   FindAnnouncementByTitleInput,
   GetAnnouncementsPaginated,
 } from '@announcement/application/interfaces/announcementRequest';
+import { paginate, paginationSkipItens } from '@shared/utils/functions/paginate';
 
 export class AnnouncementInMemoryRepository implements IAnnouncementRepository {
   private announcement = new Map<number, Announcement>();
@@ -46,7 +47,36 @@ export class AnnouncementInMemoryRepository implements IAnnouncementRepository {
     return announcement ? announcement : null;
   }
 
-  findAllAnnouncements(data: GetAnnouncementsPaginated): Promise<Pagination<Announcement>> {
-    throw new Error('Method not implemented.');
+  async findAllAnnouncements(data: GetAnnouncementsPaginated): Promise<Pagination<Announcement>> {
+    const limit = data.limit ?? 10;
+    const page = data.page ?? 1;
+    const itemsToSkip = paginationSkipItens(page, limit);
+
+    const announcementsArray = Array.from(this.announcement.values());
+
+    const filtered = announcementsArray.filter(announcement => {
+      if (data.author && announcement.author !== data.author) return false;
+      if (data.channelType && announcement.channelType !== data.channelType) return false;
+      if (data.status && announcement.status !== data.status) return false;
+
+      if (data.startDate && announcement.createdAt && announcement.createdAt < data.startDate) return false;
+      if (data.endDate && announcement.createdAt && announcement.createdAt > data.endDate) return false;
+
+      return true;
+    });
+
+    const paginated = filtered.slice(itemsToSkip, itemsToSkip + limit);
+    const totalPages = paginate(filtered.length, limit);
+
+    return {
+      data: paginated,
+      metadata: {
+        currentPage: page,
+        limitPerPage: limit,
+        totalItems: filtered.length,
+        totalPages,
+        totalItemsOnThisPage: paginated.length,
+      },
+    };
   }
 }
