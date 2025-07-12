@@ -21,7 +21,7 @@
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:unit": "jest --testRegex=\".*\\.spec\\.ts$\" --watch",
+    "test:unit": "jest --testRegex=\".*\\.spec\\.ts$\" --watch --verbose",
     "test:watch": "jest --runInBand --testRegex=\".*\\.e2e-spec.ts$\"",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
