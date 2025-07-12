@@ -194,15 +194,15 @@ yarn module
 
 ## 📝 Decisões Técnicas
 
-- **Class-validator** para validação
-- **Prisma Middleware** implementando soft delete genérico
-- **Redis** utilizado via abstraction de repositório
+- **Class-validator** para validação - uso pela facilidade com nestjs.
+- **Prisma Middleware** implementando soft delete genérico.
+- **Redis** utilizado via abstraction de repositório.
 - **Arquitetura limpa e baseada em DDD**
 - **Testes focados em regras de negócio**
 - **Swagger** para documentação
 - Organização por **branches** e **issues**
 - Por simplicidade defini os tipos de canais(channelTypes) como enum - unico.
-- Defini a data no dto no formato string, facilitando a validação em formato ISO(melhor visualização para quem está consumindo a api) e salvando no formato em date.
+- Defini a data no dto no formato string, facilitando a validação em formato ISO (melhor visualização para quem está consumindo a api) e salvando no formato em date.
 - Não realizei integração com filas(mensageria) por não ter necessidade.
 - Criei o **tasks.md** com checklist de todas as coisas que foram pedidas e que foram atendidas.
 - Optei pela api do JSONPlaceholder pela falta de necessidade de usar uma api key de integração e pela facilidade de integração.
