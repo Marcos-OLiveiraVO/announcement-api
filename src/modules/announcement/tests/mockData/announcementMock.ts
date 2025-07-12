@@ -1,4 +1,4 @@
-import { ChannelType, Status } from '@announcement/application/entities/announcement';
+import { Announcement, ChannelType, Status } from '@announcement/application/entities/announcement';
 import { CreateAnnouncementInput } from '@announcement/application/interfaces/announcementRequest';
 
 export const announcementMock: CreateAnnouncementInput = {
@@ -14,3 +14,6 @@ export const findAnnouncementMock = {
   title: announcementMock.title,
   author: announcementMock.author,
 };
+
+export const announcementId = 1;
+export const announcementEntityMock = new Announcement(announcementMock, announcementId);
