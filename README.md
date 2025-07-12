@@ -210,9 +210,9 @@ yarn module
 - Não realizei integração com filas(mensageria) por não ter necessidade.
 - Criei o **tasks.md** com checklist de todas as coisas que foram pedidas e que foram atendidas.
 - Optei pela api do JSONPlaceholder pela falta de necessidade de usar uma api key de integração e pela facilidade de integração.
-- Implementei helper function para uso de fallback com logger.
-- Implemntei helper function para uso de retry + backoff com logger.
-- utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
+- Implementei helper function para uso de fallback com logger, para utilizar em futuras chamadas - seguindo conceito do DRY.
+- Implemntei helper function para uso de retry + backoff com logger, para utilizar em futuras chamadas - seguindo conceito do DRY.
+- Utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
 - Não implementei refresh token para facilitar o uso de autenticação sem modulo de perfil.
 
 ## 📚 Planejamento
@@ -220,12 +220,16 @@ yarn module
 Todas as features foram mapeadas previamente em issues e implementadas com controle de versionamento por branches.
 
 **Github issues**:
+
 <img width="1366" height="768" alt="Screenshot from 2025-07-12 03-54-44" src="https://github.com/user-attachments/assets/8915d723-e40f-4aff-93fc-360a48b56ae9" />
 
 **Branches**:
+
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/052415c5-0618-4bc2-8359-4516a467ab3b" />
 
 
 ## 📩 Contato
 
 **Autor**: [Marcos Oliveira](https://www.linkedin.com/in/marcos-oliveiraaa/)
+**Email**: [Marcos Oliveira](marcosoliveira.rd@gmail.com)
+
