@@ -34,6 +34,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Testes unitarios.
 - Pattern repository.
 - Pattern dependency injection.
+- CORS habilitado com lista de origens.
 
 ## 🚧 Diferenciais Implementados
 
@@ -198,8 +199,17 @@ yarn module
 - **Redis** utilizado via abstraction de repositório
 - **Arquitetura limpa e baseada em DDD**
 - **Testes focados em regras de negócio**
-- Swagger para documentação
-- Organização por branches e issues
+- **Swagger** para documentação
+- Organização por **branches** e **issues**
+- Por simplicidade defini os tipos de canais(channelTypes) como enum - unico.
+- Defini a data no dto no formato string, facilitando a validação em formato ISO(melhor visualização para quem está consumindo a api) e salvando no formato em date.
+- Não realizei integração com filas(mensageria) por não ter necessidade.
+- Criei um .md com checklist de todas as coisas que foram pedidas e que foram atendidas.
+- Optei pela api do JSONPlaceholder pela falta de necessidade de usar uma api key de integração e pela facilidade de integração.
+- Implementei help function para uso de fallback com logger.
+- Implemntei help function para uso de retry + backoff com logger.
+- utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
+- Não implementei refresh token para facilitar o uso de authenticação sem modulo de perfil.
 
 ## 📚 Planejamento
 
