@@ -73,6 +73,8 @@ Foram implementados **testes unitários cobrindo todos os casos de uso e regras 
 yarn test:unit
 ```
 
+[Screencast from 12-07-2025 03:45:19.webm](https://github.com/user-attachments/assets/8a3d1ecf-bdfe-4221-8b7b-c4ef96f47dd8)
+
 ## 🐳 Setup do Projeto
 
 Pré-requisitos:
@@ -111,15 +113,24 @@ yarn db:migrate
 
 ## 📂 Documentação Swagger
 
-Acesse `http://localhost:5000/api` para ver a documentação gerada automaticamente com Swagger.
+Acesse `http://localhost:3000/api` para ver a documentação gerada automaticamente com Swagger.
+
+[Screencast from 12-07-2025 03:42:49.webm](https://github.com/user-attachments/assets/051ce24a-b770-4f9a-bb59-b9a0a5bdaa7a)
+
 
 ## ♻️ Health Check
 
-A aplicação possui um endpoint de health check em:
+A aplicação possui doi endpoint de health check em:
 
 ```http
-GET /health
+GET /health/db
 ```
+&
+
+```http
+GET /health/cache
+```
+[Screencast from 12-07-2025 03:48:48.webm](https://github.com/user-attachments/assets/54cfac9a-bdd4-4f22-84c8-2bbd49772ddb)
 
 Ele verifica a conexão com PostgreSQL e Redis.
 
@@ -138,8 +149,9 @@ A rota `GET /integracao/dados` consome a API do JSONPlaceholder e possui:
 Foi criada uma CLI personalizada para agilizar a criação de novos módulos com base na arquitetura da aplicação.
 
 ```bash
-yarn cli:make-module nome-do-modulo
+yarn module
 ```
+[Screencast from 12-07-2025 03:51:59.webm](https://github.com/user-attachments/assets/9af14d6a-9dfb-484d-b5aa-ea93ebe2f68b)
 
 ## 📝 Decisões Técnicas
 
