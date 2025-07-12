@@ -176,6 +176,8 @@ A rota `GET /integracao/dados` consome a API do JSONPlaceholder e possui:
 
 Foram implementados **testes unitários cobrindo todos os casos de uso e regras de negócio**. Não foi priorizado testes E2E ou integração por questões de prazo e foco no core da aplicação.
 
+Não bati a meta de cobertura minima de 60%, justamente por que apliquei somente testes unitarios com foco nas regras de negocio.
+
 ```bash
 yarn test:unit
 ```
