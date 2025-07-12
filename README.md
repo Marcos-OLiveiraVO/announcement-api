@@ -1,6 +1,7 @@
 # 📢 Comunica.In Challenge API
 
 ## 📘 Descrição
+Normalmente eu criaria a documentação em ingles para padronizar, mas para facilitar a leitura e o entendimento irei colocar em portugues.
 
 Repositório referente ao desafio técnico da empresa **Comunica.In**.
 
@@ -11,7 +12,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 ## ✅ Funcionalidades Implementadas
 
 - API RESTful para comunicados
-  - `GET /comunicados` com paginação e filtros
+  - `GET /comunicados` com paginação e filtros **(Por status, tipo_canal, autor, período)**
   - `GET /comunicados/:id`
   - `POST /comunicados`
   - `PUT /comunicados/:id`
@@ -28,14 +29,18 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Estrutura modular e limpa
 - CLI interna para criação de módulos
 - Variáveis de ambiente organizadas
-- Logs estruturados
+- Logs estruturados e por nivels.
+- Funções helpers.
+- Testes unitarios.
+- Pattern repository.
+- Pattern dependency injection.
 
 ## 🚧 Diferenciais Implementados
 
 - Integração com Docker e Docker Compose
 - Retry automático com timeout + fallback
 - Redis plugado via pattern repository
-- Decorators customizados (como @Public)
+- Decorators customizados (como @Public - authenticação)
 - Prisma Middleware para soft delete genérico
 - CLI para criação automatizada de módulos
 - Organização das tasks em branches e issues
@@ -65,15 +70,16 @@ O projeto foi construído com base em **DDD** e **Arquitetura Limpa**, respeitan
         └── mockData
 ```
 
-## 🧪 Testes
-
-Foram implementados **testes unitários cobrindo todos os casos de uso e regras de negócio**. Não foi priorizado testes E2E ou integração por questões de prazo e foco no core da aplicação.
-
-```bash
-yarn test:unit
+Para integrações ou serviços externos, gosto de utilizar a estruturação de shared:
 ```
-
-[Screencast from 12-07-2025 03:45:19.webm](https://github.com/user-attachments/assets/8a3d1ecf-bdfe-4221-8b7b-c4ef96f47dd8)
+└── src
+      └── shared
+        └── database
+        └── infra
+        └── middlewares
+        └── services
+        └── utils
+```
 
 ## 🐳 Setup do Projeto
 
@@ -163,6 +169,17 @@ A rota `GET /integracao/dados` consome a API do JSONPlaceholder e possui:
 - Fallback para dados cacheados em caso de falha
 
 [Screencast from 12-07-2025 04:15:47.webm](https://github.com/user-attachments/assets/2e087470-3bef-4ae5-8558-139642734b39)
+
+
+## 🧪 Testes
+
+Foram implementados **testes unitários cobrindo todos os casos de uso e regras de negócio**. Não foi priorizado testes E2E ou integração por questões de prazo e foco no core da aplicação.
+
+```bash
+yarn test:unit
+```
+
+[Screencast from 12-07-2025 04:29:46.webm](https://github.com/user-attachments/assets/e3483828-dca6-44d5-a8ac-acbe9ed9f8ff)
 
 
 ## ⚙️ CLI para Módulos
