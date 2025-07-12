@@ -167,6 +167,10 @@ yarn module
 
 Todas as features foram mapeadas previamente em issues e implementadas com controle de versionamento por branches.
 
+**Github issues**:
+<img width="1873" height="1001" alt="Screenshot from 2025-07-12 03-54-44" src="https://github.com/user-attachments/assets/8915d723-e40f-4aff-93fc-360a48b56ae9" />
+
+
 ## 📩 Contato
 
 **Autor**: [Marcos Oliveira](https://www.linkedin.com/in/marcos-oliveiraaa/)
