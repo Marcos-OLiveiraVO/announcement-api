@@ -35,6 +35,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Pattern repository.
 - Pattern dependency injection.
 - CORS habilitado com lista de origens.
+- Rate limit.
 
 ## 🚧 Diferenciais Implementados
 
@@ -198,22 +199,23 @@ yarn module
 
 ## 📝 Decisões Técnicas
 
-- **Class-validator** para validação - uso pela facilidade com nestjs.
-- **Prisma Middleware** implementando soft delete genérico.
+- **Class-validator** para validação - uso pela facilidade com nestjs e orientação a objectos(classes).
+- **Prisma Middleware** implementando soft delete genérico que ao realizar operações delete e deleteMany é realizado um update de deletedAt.
 - **Redis** utilizado via abstraction de repositório.
-- **Arquitetura limpa e baseada em DDD**
-- **Testes focados em regras de negócio**
+- **Arquitetura limpa e baseada em DDD**, seguindo conceito de modularização facilitando a criação de novos modulos.
+- **Testes focados em regras de negócio**, oque eu considero o mais importante e barato de construir.
 - **Swagger** para documentação
-- Organização por **branches** e **issues**
+- Organização por **branches** e **issues**, seguindo o conceito de Agil(scrum e kanbam).
 - Por simplicidade defini os tipos de canais(channelTypes) como enum - unico.
 - Defini a data no dto no formato string, facilitando a validação em formato ISO (melhor visualização para quem está consumindo a api) e salvando no formato em date.
 - Não realizei integração com filas(mensageria) por não ter necessidade.
 - Criei o **tasks.md** com checklist de todas as coisas que foram pedidas e que foram atendidas.
-- Optei pela api do JSONPlaceholder pela falta de necessidade de usar uma api key de integração e pela facilidade de integração.
+- Optei pela api do JSONPlaceholder pela falta de necessidade de usar uma api key de integração e pela facilidade de integração, o correto na listagem de posts seria paginação, mas até onde vi, não possui.
 - Implementei helper function para uso de fallback com logger, para utilizar em futuras chamadas - seguindo conceito do DRY.
 - Implemntei helper function para uso de retry + backoff com logger, para utilizar em futuras chamadas - seguindo conceito do DRY.
 - Utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
 - Não implementei refresh token para facilitar o uso de autenticação sem modulo de perfil.
+- Implementei um rate limit padrão de 60 segundos de TTL com limit de 45 segundos com intuito de simplificar, embora o ideal seria criar diferentes configurações para endpoints especificos (publico, autenticado, etc).
 
 ## 📚 Planejamento
 
