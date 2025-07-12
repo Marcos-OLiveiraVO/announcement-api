@@ -178,6 +178,8 @@ Foram implementados **testes unitários cobrindo todos os casos de uso e regras 
 
 Não bati a meta de cobertura minima de 60%, justamente por que apliquei somente testes unitarios com foco nas regras de negocio.
 
+Testes e2e e integração requerem uma configuração bem solida, principalmente com docker e banco exclusivo para os testes e por prazo, demora e custo para rodar em pipelines, eu pessolmente so implementaria em fluxo critico como login. 
+
 ```bash
 yarn test:unit
 ```
