@@ -94,10 +94,22 @@ yarn
 Crie os arquivos `.env` e `.env.dev` com a seguinte variável:
 
 ```env
-DATABASE_URL="postgresql://postgres:user@db:senha/comunica-in"
+##DB
+DATABASE_URL="postgresql://admin:root@db:5432/announcement-db-dev"
+
+##REDIS
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+##CORS
+ALLOWED_ORIGINs=http://localhost:3000
+
+##JWT
+JWT_EXPIRATION_TIME=90000
+JWT_SECRET='super_secret'
 ```
 
-Essas credenciais devem bater com o `docker-compose.dev.yml`. O `.env.dev` está versionado por segurança do setup.
+Essas credenciais devem bater com o `docker-compose.dev.yml`. O `.env.dev` está versionado para facilitar o teste da api(nesse caso especifico não tem problema).
 
 ### 3. Suba os containers
 
@@ -116,6 +128,13 @@ yarn db:migrate
 Acesse `http://localhost:3000/api` para ver a documentação gerada automaticamente com Swagger.
 
 [Screencast from 12-07-2025 03:42:49.webm](https://github.com/user-attachments/assets/051ce24a-b770-4f9a-bb59-b9a0a5bdaa7a)
+
+## 📂 Authenticação
+A api está protegida por authenticação necessitando de um token para acessar os endpoints privados.
+
+Para facilitar os testes da api, criei um endpoint para gerar o token, com os dados já mockados (é claro que em produção e de acordo com o desenvolvimento o correto era ter o modulo de perfil, mas não é o objetivo aqui).
+
+[Screencast from 12-07-2025 04:09:46.webm](https://github.com/user-attachments/assets/d16aeaa5-cd81-4ef4-8604-67627e86cb1b)
 
 
 ## ♻️ Health Check
@@ -142,6 +161,9 @@ A rota `GET /integracao/dados` consome a API do JSONPlaceholder e possui:
 - Cache de 5 minutos
 - Logs estruturados
 - Fallback para dados cacheados em caso de falha
+
+[Screencast from 12-07-2025 04:15:47.webm](https://github.com/user-attachments/assets/2e087470-3bef-4ae5-8558-139642734b39)
+
 
 ## ⚙️ CLI para Módulos
 
