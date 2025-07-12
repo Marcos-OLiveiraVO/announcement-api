@@ -176,7 +176,7 @@ A rota `GET /integracao/dados` consome a API do JSONPlaceholder e possui:
 
 Foram implementados **testes unitários cobrindo todos os casos de uso e regras de negócio**. Não foi priorizado testes E2E ou integração por questões de prazo e foco no core da aplicação.
 
-Não bati a meta de cobertura minima de 60%, justamente por que apliquei somente testes unitarios com foco nas regras de negocio.
+Não bati a meta de cobertura minima de 60%, justamente por que apliquei somente testes unitarios com foco nas regras de negocio, edges cases e exeções.
 
 Testes e2e e integração requerem uma configuração bem solida, principalmente com docker e banco exclusivo para os testes e por prazo, demora e custo para rodar em pipelines, eu pessolmente so implementaria em fluxo critico como login. 
 
