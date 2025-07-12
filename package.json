@@ -34,6 +34,7 @@
     "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^11.2.0",
+    "@nestjs/throttler": "^6.4.0",
     "@prisma/client": "^5.10.2",
     "axios": "^1.10.0",
     "axios-retry": "^4.5.0",
