@@ -29,7 +29,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Estrutura modular e limpa
 - CLI interna para criação de módulos
 - Variáveis de ambiente organizadas
-- Logs estruturados e por nivels.
+- Logs estruturados e por níveis.
 - Funções helpers.
 - Testes unitarios.
 - Pattern repository.
@@ -41,7 +41,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Integração com Docker e Docker Compose
 - Retry automático com timeout + fallback
 - Redis plugado via pattern repository
-- Decorators customizados (como @Public - authenticação)
+- Decorators customizados (como @Public - autenticação)
 - Prisma Middleware para soft delete genérico
 - CLI para criação automatizada de módulos
 - Organização das tasks em branches e issues
@@ -136,8 +136,8 @@ Acesse `http://localhost:3000/api` para ver a documentação gerada automaticame
 
 [Screencast from 12-07-2025 03:42:49.webm](https://github.com/user-attachments/assets/051ce24a-b770-4f9a-bb59-b9a0a5bdaa7a)
 
-## 📂 Authenticação
-A api está protegida por authenticação necessitando de um token para acessar os endpoints privados.
+## 📂 Autenticação
+A api está protegida por autenticação necessitando de um token para acessar os endpoints privados.
 
 Para facilitar os testes da api, criei um endpoint para gerar o token, com os dados já mockados (é claro que em produção e de acordo com o desenvolvimento o correto era ter o modulo de perfil, mas não é o objetivo aqui).
 
@@ -204,12 +204,12 @@ yarn module
 - Por simplicidade defini os tipos de canais(channelTypes) como enum - unico.
 - Defini a data no dto no formato string, facilitando a validação em formato ISO(melhor visualização para quem está consumindo a api) e salvando no formato em date.
 - Não realizei integração com filas(mensageria) por não ter necessidade.
-- Criei um .md com checklist de todas as coisas que foram pedidas e que foram atendidas.
+- Criei o **tasks.md** com checklist de todas as coisas que foram pedidas e que foram atendidas.
 - Optei pela api do JSONPlaceholder pela falta de necessidade de usar uma api key de integração e pela facilidade de integração.
-- Implementei help function para uso de fallback com logger.
-- Implemntei help function para uso de retry + backoff com logger.
+- Implementei helper function para uso de fallback com logger.
+- Implemntei helper function para uso de retry + backoff com logger.
 - utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
-- Não implementei refresh token para facilitar o uso de authenticação sem modulo de perfil.
+- Não implementei refresh token para facilitar o uso de autenticação sem modulo de perfil.
 
 ## 📚 Planejamento
 
@@ -218,7 +218,7 @@ Todas as features foram mapeadas previamente em issues e implementadas com contr
 **Github issues**:
 <img width="1366" height="768" alt="Screenshot from 2025-07-12 03-54-44" src="https://github.com/user-attachments/assets/8915d723-e40f-4aff-93fc-360a48b56ae9" />
 
-**Branchs**:
+**Branches**:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/052415c5-0618-4bc2-8359-4516a467ab3b" />
 
 
