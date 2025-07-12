@@ -231,5 +231,6 @@ Todas as features foram mapeadas previamente em issues e implementadas com contr
 ## 📩 Contato
 
 **Autor**: [Marcos Oliveira](https://www.linkedin.com/in/marcos-oliveiraaa/)
-**Email**: [Marcos Oliveira](marcosoliveira.rd@gmail.com)
+
+**Email**: [marcosoliveira.rd@gmail.com](marcosoliveira.rd@gmail.com)
 
