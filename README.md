@@ -169,7 +169,7 @@ Todas as features foram mapeadas previamente em issues e implementadas com contr
 **Github issues**:
 <img width="1366" height="768" alt="Screenshot from 2025-07-12 03-54-44" src="https://github.com/user-attachments/assets/8915d723-e40f-4aff-93fc-360a48b56ae9" />
 
-**Branchs**>
+**Branchs**:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/052415c5-0618-4bc2-8359-4516a467ab3b" />
 
 
