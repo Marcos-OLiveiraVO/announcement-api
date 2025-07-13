@@ -223,7 +223,7 @@ yarn module
 - Utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
 - Não implementei refresh token para facilitar o uso de autenticação sem modulo de perfil.
 - Implementei um rate limit padrão de 60 segundos de TTL com limit de 45 segundos com intuito de simplificar, embora o ideal seria criar diferentes configurações para endpoints especificos (publico, autenticado, etc).
-- Implementei um runner para os seeds, possibilitando que novos seeds sejam adicionado de forma facil.
+- Implementei um runner para os seeds, possibilitando que novos seeds sejam adicionado de forma facil e utilizei uma lib de faker para geração de dados.
 
 ## 📚 Planejamento
 
