@@ -2,7 +2,7 @@ import { AnnouncementModule } from '@announcement/announcement.module';
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { seconds, ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
-import { DatabaseModule } from '@shared/database/database.module';
+import { DatabaseModule } from '@shared/services/database/database.module';
 import { HealthModule } from '@shared/infra/health/health.module';
 import { AuthenticationModule } from '@shared/middleware/auth/authentication.module';
 import { AuthenticationGuard } from '@shared/middleware/auth/infra/http/guards/authentication.guard';

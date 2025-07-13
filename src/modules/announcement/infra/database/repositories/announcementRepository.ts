@@ -2,7 +2,7 @@ import { Announcement } from '@announcement/application/entities/announcement';
 import { IAnnouncementRepository } from '@announcement/application/interfaces/IAnnouncementRepository';
 import { AnnouncementMapper } from '@announcement/infra/adapters/mappers/announcementMapper';
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '@shared/database/prismaService';
+import { PrismaService } from '@shared/services/database/prismaService';
 import { paginate, paginationSkipItens } from '@shared/utils/functions/paginate';
 import { Pagination } from '@shared/utils/interfaces/globalInterface';
 import {

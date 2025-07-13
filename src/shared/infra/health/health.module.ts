@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from '@shared/database/database.module';
+import { DatabaseModule } from '@shared/services/database/database.module';
 import { CheckDBController } from './checkDBController';
 import { CheckCacheController } from './checkCacheController';
 import { CacheModule } from '@shared/services/cache/cache.module';
