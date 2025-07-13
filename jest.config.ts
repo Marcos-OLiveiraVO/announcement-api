@@ -28,6 +28,7 @@ const config: JestConfigWithTsJest = {
     '.*Mapper\\.ts$',
     '.*Controller\\.ts$',
     '.*.guard\\.ts$',
+    '.*/e2e/.*',
     'src/shared/utils',
     'src/shared/services/database',
   ],
