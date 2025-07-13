@@ -193,6 +193,7 @@ Porém em testes unitarios a porcentagem foi de 100%:
 
 
 
+
 Testes e2e e integração requerem uma configuração bem solida, principalmente com docker e banco exclusivo para os testes e por prazo, demora e custo para rodar em pipelines, eu pessolmente so implementaria em fluxo critico como login. 
 
 ```bash
