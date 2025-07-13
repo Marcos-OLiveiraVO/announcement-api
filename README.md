@@ -31,7 +31,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Variáveis de ambiente organizadas
 - Logs estruturados e por níveis.
 - Funções helpers.
-- Testes unitarios.
+- Testes unitarios com 100% de cobertura.
 - Pattern repository.
 - Pattern dependency injection.
 - CORS habilitado com lista de origens.
