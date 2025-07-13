@@ -36,6 +36,7 @@ Cada funcionalidade foi cuidadosamente isolada em seu próprio módulo, promoven
 - Pattern dependency injection.
 - CORS habilitado com lista de origens.
 - Rate limit.
+- Seed para testes.
 
 ## 🚧 Diferenciais Implementados
 
@@ -131,6 +132,12 @@ yarn dev
 yarn db:migrate
 ```
 
+### 4. Rode o seed
+
+```bash
+yarn db:seed
+```
+
 ## 📂 Documentação Swagger
 
 Acesse `http://localhost:3000/api` para ver a documentação gerada automaticamente com Swagger.
@@ -216,6 +223,7 @@ yarn module
 - Utilizei o repository pattern em cache e logger pela facilidade em trocar de plataforma no futuro.
 - Não implementei refresh token para facilitar o uso de autenticação sem modulo de perfil.
 - Implementei um rate limit padrão de 60 segundos de TTL com limit de 45 segundos com intuito de simplificar, embora o ideal seria criar diferentes configurações para endpoints especificos (publico, autenticado, etc).
+- Implementei um runner para os seeds, possibilitando que novos seeds sejam adicionado de forma facil.
 
 ## 📚 Planejamento
 
