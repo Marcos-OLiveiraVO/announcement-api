@@ -22,11 +22,13 @@
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:unit": "dotenv -e .env.dev -- jest --testRegex=\".*\\.spec\\.ts$\" --watch --verbose",
-    "test:watch": "dotenv -e .env.dev -- jest --runInBand --testRegex=\".*\\.e2e-spec.ts$\"",
-    "test:cov": "dotenv -e .env.dev -- jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:unit": "dotenv -e .env.dev -- jest --config jest.config.ts --verbose",
+    "test:unit:watch": "dotenv -e .env.dev -- jest jest.config.ts --runInBand --watch",
+    "test:unit:cov": "dotenv -e .env.dev -- jest --coverage --config jest.config.ts",
+    "test:e2e": "dotenv -e .env.dev -- jest --config jest.e2e.config.ts --verbose",
+    "test:e2e:watch": "dotenv -e .env.dev -- jest jest.e2e.config.ts --runInBand --watch",
+    "test:e2e:cov": "dotenv -e .env.dev -- jest --coverage --config jest.e2e.config.ts --passWithNoTests",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
