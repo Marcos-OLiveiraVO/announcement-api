@@ -55,7 +55,7 @@ markdown_content = """# ✅ Task List - Desafio Técnico Comunica.In
 ### ⭐ Diferenciais
 
 - [ ] Migrations automáticas
-- [ ] Seeders para dados de teste
+- [x] Seeders para dados de teste
 - [ ] Logs estruturados
 - [x] Documentação da API com Swagger
 
