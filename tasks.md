@@ -5,7 +5,7 @@ markdown_content = """# ✅ Task List - Desafio Técnico Comunica.In
 ## 📅 Instruções Gerais
 
 - [x] Prazo: 5 dias úteis
-- [] Entrega via repositório Git (GitHub, GitLab, etc.) para: kayo@comunica.in
+- [x] Entrega via repositório Git (GitHub, GitLab, etc.) para: kayo@comunica.in
 - [x] Criar um README detalhado com:
   - [x] Instruções de instalação e execução
   - [x] Decisões técnicas tomadas
