@@ -7,7 +7,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
     await this.$connect();
   }
 
-  async enableSoftDeleteExtensions() {
+  async extensions() {
     return this.$extends({
       query: {
         $allModels: {
@@ -23,6 +23,26 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
               where: args.where,
               data: { deletedAt: new Date() },
             });
+          },
+
+          findFirst: async ({ model, args, query }) => {
+            args.where = { ...args.where, deletedAt: null };
+            return await query(args);
+          },
+
+          findMany: async ({ model, args, query }) => {
+            args.where = { ...args.where, deletedAt: null };
+            return await query(args);
+          },
+
+          findUnique: async ({ args, query }) => {
+            args.where = { ...args.where, deletedAt: null };
+            return await query(args);
+          },
+
+          count: async ({ model, args, query }) => {
+            args.where = { ...args.where, deletedAt: null };
+            return await query(args);
           },
         },
       },

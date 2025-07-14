@@ -40,7 +40,7 @@ export class AnnouncementRepository implements IAnnouncementRepository {
   }
 
   async findAnnouncementById(id: number): Promise<Announcement | null> {
-    const announcement = await this.prisma.announcement.findUnique({ where: { id } });
+    const announcement = await this.prisma.announcement.findUnique({ where: { id, deletedAt: null } });
 
     if (!announcement) {
       return null;
@@ -60,6 +60,7 @@ export class AnnouncementRepository implements IAnnouncementRepository {
       status: data.status,
       author: data.author,
       createdAt: { gte: data.startDate, lte: data.endDate },
+      deletedAt: null,
     };
 
     const announcementsQuantity = await this.prisma.announcement.count({ where: filters });

@@ -3,8 +3,19 @@ import { PrismaService } from './prismaService';
 import { AnnouncementFakerSeed } from './seed/announcement.seed';
 import { SeedRunner } from './seed/seedRunner';
 
+export type Prisma = Awaited<ReturnType<PrismaService['extensions']>>;
+
 @Module({
-  providers: [PrismaService, SeedRunner, AnnouncementFakerSeed],
+  providers: [
+    SeedRunner,
+    AnnouncementFakerSeed,
+    {
+      provide: PrismaService,
+      useFactory: async (): Promise<Prisma> => {
+        return await new PrismaService().extensions();
+      },
+    },
+  ],
   exports: [PrismaService],
 })
 export class DatabaseModule {}
